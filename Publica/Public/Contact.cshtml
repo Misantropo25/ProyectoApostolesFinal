@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/_LayoutPage2.cshtml";
+}
+
+<!-- about breadcrumb -->
+<section class="w3l-about-breadcrumb position-relative text-center">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+        <div class="container py-lg-5 py-3">
+            <h2 class="title">Horario</h2>
+            <ul class="breadcrumbs-custom-path mt-2">
+                <li><a href="#url">Home</a></li>
+                <li class="active"><span class="fa fa-angle-double-right mx-2" aria-hidden="true"></span> Horario </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //about breadcrumb -->
+<section class="w3l-contact-11">
+    <div class="form-41-mian py-5">
+        <div class="container py-lg-4">
+            <div class="row align-form-map">
+                <div class="col-lg-6 contact-left pr-lg-4">
+                    <div class="partners">
+                        <div class="cont-details">
+                            <div class="title-content text-left">
+                                <h3 class="hny-title">Horario de Atención</h3>
+                            </div>
+                            <p class="mt-3 mb-4 pr-lg-5">
+                                Con la finalidad de permitir una atención adecuada, se presentará el siguiente horario de atención:
+                            </p>
+                            <h6 class="mb-4">
+                                Martes y Jueves 13:00 a 15:00 horas
+                            </h6>
+                            <h6 class="mb-4">
+                                Viernes 16:00 a 18:00 horas
+                            </h6>
+                        </div>
+                        <div class="hours">
+                            <h6 class="mt-4">Correo electronico:</h6>
+
+                            <p>
+                                centraldeinformes@uandina.edu.pe
+                            </p>
+                        </div>
+                        <div class="hours">
+                            <h6 class="mt-4">Contactos:</h6>
+                            <p class="my-3">Telefono: +084-605000</p>
+                            <p>Celular: 985 997 971</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242.43589769806144!2d-71.90399224663604!3d-13.537164151512673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x916e7edf8692efd5%3A0xb2151ede7622f88b!2sUniversidad%20Andina%20del%20Cusco!5e0!3m2!1ses-419!2spe!4v1666927009847!5m2!1ses-419!2spe"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" frameborder="0"></iframe>
+    </div>
+</section>
+<!-- //contact-form -->
+<!-- Template JavaScript -->
+<script src="~/js/jquery-3.3.1.min.js"></script>
+<script src="~/js/theme-change.js"></script>
+<!-- disable body scroll which navbar is in active -->
+<script>
+    $(function () {
+        $('.navbar-toggler').click(function () {
+            $('body').toggleClass('noscroll');
+        })
+    });
+</script>
+<!-- disable body scroll which navbar is in active -->
+<!--/MENU-JS-->
+<script>
+    $(window).on("scroll", function () {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+</script>

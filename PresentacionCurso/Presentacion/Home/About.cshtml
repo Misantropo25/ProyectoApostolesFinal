@@ -1,0 +1,142 @@
+﻿
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<!-- about breadcrumb -->
+<section class="w3l-about-breadcrumb position-relative text-center">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+        <div class="container py-lg-5 py-3">
+            <h2 class="title">Proyectos</h2>
+            <ul class="breadcrumbs-custom-path mt-2">
+                <li><a href="#url">Home</a></li>
+                <li class="active"><span class="fa fa-angle-double-right mx-2" aria-hidden="true">Proyectos</span> </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //about breadcrumb -->
+<!-- /content-6-->
+<!-- /content-3-->
+<section class="w3l-content-3">
+    <!-- /content-3-main-->
+    <div class="content-3-mian py-5">
+        <div class="container py-lg-5">
+            <div class="content-info-in row">
+                <div class="col-lg-6">
+                    <img src="~/assets/images/SOMEE.png" alt="" class="img-fluid">
+                </div>
+                <div class="col-lg-6 mt-lg-0 mt-5 about-right-faq align-self  pl-lg-5">
+                    <div class="title-content text-left mb-2">
+                       
+                        <h3 class="hny-title">
+                           PARTE PÚBLICA
+                        </h3>
+                    </div>
+                    <p class="mt-3">
+                        Los Apostoles de Cristo desarrollaron la parte publica, la cual estara disponible a todo aquel que ingrese por primera vez a nuestro sistema propuesto, donde tendremos datos como la mision y vision, como contactarnos y otros, todo ello en el servidor de SOMEE proporcionado por la Universidad.
+                        
+                    </p>
+                    <a href="/Public/Principal" class="btn btn-style btn-primary mt-md-5 mt-4">Mas Información </a>
+                </div>
+            </div>
+        </div>
+</section>
+<section class="w3l-content-3">
+    <!-- /content-3-main-->
+    <div class="content-3-mian py-5">
+        <div class="container py-lg-5">
+            <div class="content-info-in row">
+                <div class="col-lg-6">
+                    <img src="~/assets/images/doc.png" alt="" class="img-fluid">
+                </div>
+                <div class="col-lg-6 mt-lg-0 mt-5 about-right-faq align-self  pl-lg-5">
+                    <div class="title-content text-left mb-2">
+
+                        <h3 class="hny-title">
+                            DOCUMENTACIÓN
+                        </h3>
+                    </div>
+                    <p class="mt-3">
+                        Tenemos la documentacion que se ha ido desarrollando a lo largo delaporte 1 y 2, documentos hechos en google docs para lograr un trabajo colaborativo eficiente, donde tendremos informacion mas detallada del avance de nuestro proyecto
+
+                    </p>
+                    <a href="https://docs.google.com/document/d/1W51Subbnvaslxt1mn8ZfZaDv_xOHAh3DDGaYHXhgmmA/edit" class="btn btn-style btn-primary mt-md-5 mt-4">Informe del Proyecto</a>
+                    <a href="https://docs.google.com/document/d/1kW0kCzWga1Nu0idmj0Sm06ivxIpvKq4Mj8b-k65yUZQ/edit?usp=sharing" class="btn btn-style btn-primary mt-md-5 mt-4">Cronograma del proyecto</a>
+                    <a href="https://docs.google.com/document/d/1W_qXfVznfJ7WIGcB7ALMhBM806GsbIZWsPmdodaJBjw/edit" class="btn btn-style btn-primary mt-md-5 mt-4">Sprint 1</a>
+                </div>
+            </div>
+        </div>
+</section>
+<section class="w3l-content-3">
+    <!-- /content-3-main-->
+    <div class="content-3-mian py-5">
+        <div class="container py-lg-5">
+            <div class="content-info-in row">
+                <div class="col-lg-6">
+                    <img src="~/assets/images/sites.png" alt="" class="img-fluid">
+                </div>
+                <div class="col-lg-6 mt-lg-0 mt-5 about-right-faq align-self  pl-lg-5">
+                    <div class="title-content text-left mb-2">
+
+                        <h3 class="hny-title">
+                            GOOGLE SITES
+                        </h3>
+                    </div>
+                    <p class="mt-3">
+                        En google sites se hace la presentación de los integrantes del grupo, sobre el proyecto que se está desarrollando y
+                        el informe final con toda la información necesaria de dicho proyecto.
+
+                    </p>
+                    <a href="https://sites.google.com/uandina.edu.pe/informe-proyecto-apostoles/inicio" class="btn btn-style btn-primary mt-md-5 mt-4">Google Sites del Grupo</a>
+                </div>
+            </div>
+        </div>
+</section>
+<!-- //content-3-->
+<!-- //content-6-->
+<!-- /w3l-content-4 -->
+<!--//content-5-->
+<!-- team -->
+<!-- Template JavaScript -->
+<script src="~/js/jquery-3.3.1.min.js"></script>
+<script src="~/js/theme-change.js"></script>
+<!-- disable body scroll which navbar is in active -->
+<script>
+    $(function () {
+        $('.navbar-toggler').click(function () {
+            $('body').toggleClass('noscroll');
+        })
+    });
+</script>
+<!-- disable body scroll which navbar is in active -->
+<!--/MENU-JS-->
+<script>
+    $(window).on("scroll", function () {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+</script>
+<!--//MENU-JS-->
+<!-- team -->

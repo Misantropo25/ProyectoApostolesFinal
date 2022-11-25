@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3A136788-D8D3-40C0-8617-EE89A4EBC948}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Entidad</RootNamespace>
+    <AssemblyName>Entidad</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CartaDePresentacion.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CoordinadorEPP.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBEPP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DirectorEPIS.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocenteSupervisorEPP.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Empresa.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Estudiante.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Informe.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformeAvanceEPP.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformeDeSupervisionEPP.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformeFinalEPP.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanDeTrabajoEPP.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="spActualizarCartaDePresentacion_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spActualizarCoordinadorEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spActualizarDirectorEPIS_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spActualizarDocenteSupervisorEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spActualizarEmpresa_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spActualizarEstudiante_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spActualizarInformeAvanceEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spActualizarInformeDeSupervisionEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spActualizarInformeFinalEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spActualizarInforme_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spActualizarPlanDeTrabajoEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spActualizarUsuario_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spAgregarCartaDePresentacion_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spAgregarCoordinadorEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spAgregarDirectorEPIS_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spAgregarDocenteSupervisorEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spAgregarEmpresa_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spAgregarEstudiante_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spAgregarInformeAvanceEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spAgregarInformeDeSupervisionEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spAgregarInformeFinalEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spAgregarInforme_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spAgregarPlanDeTrabajoEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spAgregarUsuario_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spEliminarCartaDePresentacion_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spEliminarCoordinadorEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spEliminarDirectorEPIS_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spEliminarDocenteSupervisorEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spEliminarEmpresa_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spEliminarEstudiante_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spEliminarInformeAvanceEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spEliminarInformeDeSupervisionEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spEliminarInformeFinalEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spEliminarInforme_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spEliminarPlanDeTrabajoEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spEliminarUsuario_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spListarCartasDePresentacion_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spListarCoordinadoresPPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spListarDirectoresEPIS_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spListarDocentesSupervisoresEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spListarEmpresas_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spListarEstudiantes_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spListarInformesAvanceEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spListarInformesDeSupervision_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spListarInformesFinalesEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spListarInformes_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spListarPlanesDeTrabajo_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spListarUsuarios_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uspBuscarCartaDePresentacion_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uspBuscarCoordinadorEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uspBuscarDirectorEPIS_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uspBuscarDocenteSupervisorEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uspBuscarEmpresa_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uspBuscarEstudiante_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uspBuscarInformeAvanceEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uspBuscarInformeDeSupervisionEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uspBuscarInformeFinalEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uspBuscarInforme_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uspBuscarPlanDeTrabajoEPP_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uspBuscarUsuario_Result.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario.cs">
+      <DependentUpon>DBEPP.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DBEPP.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DBEPP.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

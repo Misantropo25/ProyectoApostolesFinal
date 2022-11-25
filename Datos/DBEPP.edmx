@@ -1,0 +1,2252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_PPPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CartaDePresentacion">
+          <Key>
+            <PropertyRef Name="CodCartaPresentacion" />
+          </Key>
+          <Property Name="CodCartaPresentacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Archivo" Type="varbinary(max)" />
+          <Property Name="CodInforme" Type="int" />
+        </EntityType>
+        <EntityType Name="CoordinadorEPP">
+          <Key>
+            <PropertyRef Name="CodCoordinador" />
+          </Key>
+          <Property Name="CodCoordinador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="50" />
+          <Property Name="Nombres" Type="varchar" MaxLength="50" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="varchar" MaxLength="9" />
+          <Property Name="CodUsuario" Type="int" />
+        </EntityType>
+        <EntityType Name="DirectorEPIS">
+          <Key>
+            <PropertyRef Name="CodDirectorEPIS" />
+          </Key>
+          <Property Name="CodDirectorEPIS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="50" />
+          <Property Name="Nombres" Type="varchar" MaxLength="50" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="varchar" MaxLength="9" />
+          <Property Name="CodUsuario" Type="int" />
+        </EntityType>
+        <EntityType Name="DocenteSupervisorEPP">
+          <Key>
+            <PropertyRef Name="CodDocenteSupervisor" />
+          </Key>
+          <Property Name="CodDocenteSupervisor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="50" />
+          <Property Name="Nombres" Type="varchar" MaxLength="50" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="varchar" MaxLength="9" />
+          <Property Name="CodUsuario" Type="int" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="CodEmpresa" />
+          </Key>
+          <Property Name="CodEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="Perfil" Type="varchar" MaxLength="100" />
+          <Property Name="RequisitosGenerales" Type="varchar" MaxLength="100" />
+          <Property Name="CronogramaConvocatoria" Type="varchar" MaxLength="50" />
+          <Property Name="Beneficios" Type="varchar" MaxLength="100" />
+          <Property Name="fechaLimitePostulacion" Type="date" />
+          <Property Name="CodCoordinador" Type="int" />
+        </EntityType>
+        <EntityType Name="Estudiante">
+          <Key>
+            <PropertyRef Name="CodEstudiante" />
+          </Key>
+          <Property Name="CodEstudiante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="50" />
+          <Property Name="Nombres" Type="varchar" MaxLength="50" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="varchar" MaxLength="9" />
+          <Property Name="CodDocenteSupervisor" Type="int" />
+          <Property Name="CodUsuario" Type="int" />
+        </EntityType>
+        <EntityType Name="Informe">
+          <Key>
+            <PropertyRef Name="CodInforme" />
+          </Key>
+          <Property Name="CodInforme" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoInforme" Type="varchar" MaxLength="50" />
+          <Property Name="Archivo" Type="varbinary(max)" />
+          <Property Name="FechaDeSubida" Type="date" />
+          <Property Name="Estado" Type="bit" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="100" />
+          <Property Name="CodUsuario" Type="int" />
+        </EntityType>
+        <EntityType Name="InformeAvanceEPP">
+          <Key>
+            <PropertyRef Name="CodInformeAvanceEPP" />
+          </Key>
+          <Property Name="CodInformeAvanceEPP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Archivo" Type="varbinary(max)" />
+          <Property Name="CodInforme" Type="int" />
+        </EntityType>
+        <EntityType Name="InformeDeSupervisionEPP">
+          <Key>
+            <PropertyRef Name="CodInformeDeSupervisionEPP" />
+          </Key>
+          <Property Name="CodInformeDeSupervisionEPP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Calificacion" Type="varchar" MaxLength="50" />
+          <Property Name="SupervisorACargoEmpresa" Type="varchar" MaxLength="50" />
+          <Property Name="Archivo" Type="varbinary(max)" />
+          <Property Name="CodInforme" Type="int" />
+        </EntityType>
+        <EntityType Name="InformeFinalEPP">
+          <Key>
+            <PropertyRef Name="CodInformeFinalEPP" />
+          </Key>
+          <Property Name="CodInformeFinalEPP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Archivo" Type="varbinary(max)" />
+          <Property Name="CodInforme" Type="int" />
+        </EntityType>
+        <EntityType Name="PlanDeTrabajoEPP">
+          <Key>
+            <PropertyRef Name="CodPlanDeTrabajoEPP" />
+          </Key>
+          <Property Name="CodPlanDeTrabajoEPP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Archivo" Type="varbinary(max)" />
+          <Property Name="CodInforme" Type="int" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="CodUsuario" />
+          </Key>
+          <Property Name="CodUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" />
+          <Property Name="Clave" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK__CartaDePr__CodIn__2DE6D218">
+          <End Role="Informe" Type="Self.Informe" Multiplicity="0..1" />
+          <End Role="CartaDePresentacion" Type="Self.CartaDePresentacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Informe">
+              <PropertyRef Name="CodInforme" />
+            </Principal>
+            <Dependent Role="CartaDePresentacion">
+              <PropertyRef Name="CodInforme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Coordinad__CodUs__22751F6C">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="CoordinadorEPP" Type="Self.CoordinadorEPP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="CodUsuario" />
+            </Principal>
+            <Dependent Role="CoordinadorEPP">
+              <PropertyRef Name="CodUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DirectorE__CodUs__18EBB532">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="DirectorEPIS" Type="Self.DirectorEPIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="CodUsuario" />
+            </Principal>
+            <Dependent Role="DirectorEPIS">
+              <PropertyRef Name="CodUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DocenteSu__CodUs__1BC821DD">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="DocenteSupervisorEPP" Type="Self.DocenteSupervisorEPP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="CodUsuario" />
+            </Principal>
+            <Dependent Role="DocenteSupervisorEPP">
+              <PropertyRef Name="CodUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empresa__CodCoor__25518C17">
+          <End Role="CoordinadorEPP" Type="Self.CoordinadorEPP" Multiplicity="0..1" />
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CoordinadorEPP">
+              <PropertyRef Name="CodCoordinador" />
+            </Principal>
+            <Dependent Role="Empresa">
+              <PropertyRef Name="CodCoordinador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estudiant__CodDo__1EA48E88">
+          <End Role="DocenteSupervisorEPP" Type="Self.DocenteSupervisorEPP" Multiplicity="0..1" />
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocenteSupervisorEPP">
+              <PropertyRef Name="CodDocenteSupervisor" />
+            </Principal>
+            <Dependent Role="Estudiante">
+              <PropertyRef Name="CodDocenteSupervisor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estudiant__CodUs__1F98B2C1">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="CodUsuario" />
+            </Principal>
+            <Dependent Role="Estudiante">
+              <PropertyRef Name="CodUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Informe__CodUsua__282DF8C2">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Informe" Type="Self.Informe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="CodUsuario" />
+            </Principal>
+            <Dependent Role="Informe">
+              <PropertyRef Name="CodUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformeAv__CodIn__30C33EC3">
+          <End Role="Informe" Type="Self.Informe" Multiplicity="0..1" />
+          <End Role="InformeAvanceEPP" Type="Self.InformeAvanceEPP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Informe">
+              <PropertyRef Name="CodInforme" />
+            </Principal>
+            <Dependent Role="InformeAvanceEPP">
+              <PropertyRef Name="CodInforme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformeDe__CodIn__2B0A656D">
+          <End Role="Informe" Type="Self.Informe" Multiplicity="0..1" />
+          <End Role="InformeDeSupervisionEPP" Type="Self.InformeDeSupervisionEPP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Informe">
+              <PropertyRef Name="CodInforme" />
+            </Principal>
+            <Dependent Role="InformeDeSupervisionEPP">
+              <PropertyRef Name="CodInforme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformeFi__CodIn__339FAB6E">
+          <End Role="Informe" Type="Self.Informe" Multiplicity="0..1" />
+          <End Role="InformeFinalEPP" Type="Self.InformeFinalEPP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Informe">
+              <PropertyRef Name="CodInforme" />
+            </Principal>
+            <Dependent Role="InformeFinalEPP">
+              <PropertyRef Name="CodInforme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PlanDeTra__CodIn__367C1819">
+          <End Role="Informe" Type="Self.Informe" Multiplicity="0..1" />
+          <End Role="PlanDeTrabajoEPP" Type="Self.PlanDeTrabajoEPP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Informe">
+              <PropertyRef Name="CodInforme" />
+            </Principal>
+            <Dependent Role="PlanDeTrabajoEPP">
+              <PropertyRef Name="CodInforme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="spActualizarCartaDePresentacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodCartaPresentacion" Type="int" Mode="In" />
+          <Parameter Name="Archivo" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="CodInforme" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spActualizarCoordinadorEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodCoordinador" Type="int" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+          <Parameter Name="Telefono" Type="varchar" Mode="In" />
+          <Parameter Name="CodUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spActualizarDirectorEPIS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodDirectorEPIS" Type="int" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+          <Parameter Name="Telefono" Type="varchar" Mode="In" />
+          <Parameter Name="CodUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spActualizarDocenteSupervisorEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodDocenteSupervisor" Type="int" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+          <Parameter Name="Telefono" Type="varchar" Mode="In" />
+          <Parameter Name="CodUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spActualizarEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodEmpresa" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="Perfil" Type="varchar" Mode="In" />
+          <Parameter Name="RequisitosGenerales" Type="varchar" Mode="In" />
+          <Parameter Name="CronogramaConvocatoria" Type="varchar" Mode="In" />
+          <Parameter Name="Beneficios" Type="varchar" Mode="In" />
+          <Parameter Name="fechaLimitePostulacion" Type="date" Mode="In" />
+          <Parameter Name="CodCoordinador" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spActualizarEstudiante" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodEstudiante" Type="int" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+          <Parameter Name="Telefono" Type="varchar" Mode="In" />
+          <Parameter Name="CodDocenteSupervisor" Type="int" Mode="In" />
+          <Parameter Name="CodUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spActualizarInforme" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodInforme" Type="int" Mode="In" />
+          <Parameter Name="TipoInforme" Type="varchar" Mode="In" />
+          <Parameter Name="Archivo" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="FechaDeSubida" Type="date" Mode="In" />
+          <Parameter Name="Estado" Type="bit" Mode="In" />
+          <Parameter Name="Observaciones" Type="varchar" Mode="In" />
+          <Parameter Name="CodUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spActualizarInformeAvanceEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodInformeAvanceEPP" Type="int" Mode="In" />
+          <Parameter Name="Archivo" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="CodInforme" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spActualizarInformeDeSupervisionEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodInformeDeSupervisionEPP" Type="int" Mode="In" />
+          <Parameter Name="Calificacion" Type="varchar" Mode="In" />
+          <Parameter Name="SupervisorACargoEmpresa" Type="varchar" Mode="In" />
+          <Parameter Name="Archivo" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="CodInforme" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spActualizarInformeFinalEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodInformeFinalEPP" Type="int" Mode="In" />
+          <Parameter Name="Archivo" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="CodInforme" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spActualizarPlanDeTrabajoEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodPlanDeTrabajoEPP" Type="int" Mode="In" />
+          <Parameter Name="Archivo" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="CodInforme" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spActualizarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodUsuario" Type="int" Mode="In" />
+          <Parameter Name="Usuario" Type="varchar" Mode="In" />
+          <Parameter Name="Clave" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spAgregarCartaDePresentacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodCartaPresentacion" Type="int" Mode="In" />
+          <Parameter Name="Archivo" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="CodInforme" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spAgregarCoordinadorEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodCoordinador" Type="int" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+          <Parameter Name="Telefono" Type="varchar" Mode="In" />
+          <Parameter Name="CodUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spAgregarDirectorEPIS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodDirectorEPIS" Type="int" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+          <Parameter Name="Telefono" Type="varchar" Mode="In" />
+          <Parameter Name="CodUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spAgregarDocenteSupervisorEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodDocenteSupervisor" Type="int" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+          <Parameter Name="Telefono" Type="varchar" Mode="In" />
+          <Parameter Name="CodUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spAgregarEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodEmpresa" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="Perfil" Type="varchar" Mode="In" />
+          <Parameter Name="RequisitosGenerales" Type="varchar" Mode="In" />
+          <Parameter Name="CronogramaConvocatoria" Type="varchar" Mode="In" />
+          <Parameter Name="Beneficios" Type="varchar" Mode="In" />
+          <Parameter Name="fechaLimitePostulacion" Type="date" Mode="In" />
+          <Parameter Name="CodCoordinador" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spAgregarEstudiante" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodEstudiante" Type="int" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+          <Parameter Name="Telefono" Type="varchar" Mode="In" />
+          <Parameter Name="CodDocenteSupervisor" Type="int" Mode="In" />
+          <Parameter Name="CodUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spAgregarInforme" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodInforme" Type="int" Mode="In" />
+          <Parameter Name="TipoInforme" Type="varchar" Mode="In" />
+          <Parameter Name="Archivo" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="FechaDeSubida" Type="date" Mode="In" />
+          <Parameter Name="Estado" Type="bit" Mode="In" />
+          <Parameter Name="Observaciones" Type="varchar" Mode="In" />
+          <Parameter Name="CodUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spAgregarInformeAvanceEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodInformeAvanceEPP" Type="int" Mode="In" />
+          <Parameter Name="Archivo" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="CodInforme" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spAgregarInformeDeSupervisionEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodInformeDeSupervisionEPP" Type="int" Mode="In" />
+          <Parameter Name="Calificacion" Type="varchar" Mode="In" />
+          <Parameter Name="SupervisorACargoEmpresa" Type="varchar" Mode="In" />
+          <Parameter Name="Archivo" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="CodInforme" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spAgregarInformeFinalEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodInformeFinalEPP" Type="int" Mode="In" />
+          <Parameter Name="Archivo" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="CodInforme" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spAgregarPlanDeTrabajoEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodPlanDeTrabajoEPP" Type="int" Mode="In" />
+          <Parameter Name="Archivo" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="CodInforme" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spAgregarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodUsuario" Type="int" Mode="In" />
+          <Parameter Name="Usuario" Type="varchar" Mode="In" />
+          <Parameter Name="Clave" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spEliminarCartaDePresentacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodCartaPresentacion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spEliminarCoordinadorEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodCoordinador" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spEliminarDirectorEPIS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodDirectorEPIS" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spEliminarDocenteSupervisorEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodDocenteSupervisor" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spEliminarEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodEmpresa" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spEliminarEstudiante" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodEstudiante" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spEliminarInforme" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodInforme" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spEliminarInformeAvanceEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodInformeAvanceEPP" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spEliminarInformeDeSupervisionEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodInformeDeSupervisionEPP" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spEliminarInformeFinalEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodInformeFinalEPP" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spEliminarPlanDeTrabajoEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodPlanDeTrabajoEPP" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spEliminarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spListarCartasDePresentacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spListarCoordinadoresPPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spListarDirectoresEPIS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spListarDocentesSupervisoresEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spListarEmpresas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spListarEstudiantes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spListarInformes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spListarInformesAvanceEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spListarInformesDeSupervision" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spListarInformesFinalesEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spListarPlanesDeTrabajo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spListarUsuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spValidarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Usuario" Type="varchar" Mode="In" />
+          <Parameter Name="Clave" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspBuscarCartaDePresentacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="texto" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspBuscarCoordinadorEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="texto" Type="varchar" Mode="In" />
+          <Parameter Name="criterio" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspBuscarDirectorEPIS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="texto" Type="varchar" Mode="In" />
+          <Parameter Name="criterio" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspBuscarDocenteSupervisorEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="texto" Type="varchar" Mode="In" />
+          <Parameter Name="criterio" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspBuscarEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="texto" Type="varchar" Mode="In" />
+          <Parameter Name="criterio" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspBuscarEstudiante" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="texto" Type="varchar" Mode="In" />
+          <Parameter Name="criterio" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspBuscarInforme" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="texto" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspBuscarInformeAvanceEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="texto" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspBuscarInformeDeSupervisionEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="texto" Type="varchar" Mode="In" />
+          <Parameter Name="criterio" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspBuscarInformeFinalEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="texto" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspBuscarPlanDeTrabajoEPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="texto" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspBuscarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="texto" Type="varchar" Mode="In" />
+          <Parameter Name="criterio" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="DB_PPPModelStoreContainer">
+          <EntitySet Name="CartaDePresentacion" EntityType="Self.CartaDePresentacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CoordinadorEPP" EntityType="Self.CoordinadorEPP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DirectorEPIS" EntityType="Self.DirectorEPIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocenteSupervisorEPP" EntityType="Self.DocenteSupervisorEPP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estudiante" EntityType="Self.Estudiante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Informe" EntityType="Self.Informe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformeAvanceEPP" EntityType="Self.InformeAvanceEPP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformeDeSupervisionEPP" EntityType="Self.InformeDeSupervisionEPP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformeFinalEPP" EntityType="Self.InformeFinalEPP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlanDeTrabajoEPP" EntityType="Self.PlanDeTrabajoEPP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CartaDePr__CodIn__2DE6D218" Association="Self.FK__CartaDePr__CodIn__2DE6D218">
+            <End Role="Informe" EntitySet="Informe" />
+            <End Role="CartaDePresentacion" EntitySet="CartaDePresentacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Coordinad__CodUs__22751F6C" Association="Self.FK__Coordinad__CodUs__22751F6C">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="CoordinadorEPP" EntitySet="CoordinadorEPP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DirectorE__CodUs__18EBB532" Association="Self.FK__DirectorE__CodUs__18EBB532">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="DirectorEPIS" EntitySet="DirectorEPIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DocenteSu__CodUs__1BC821DD" Association="Self.FK__DocenteSu__CodUs__1BC821DD">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="DocenteSupervisorEPP" EntitySet="DocenteSupervisorEPP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empresa__CodCoor__25518C17" Association="Self.FK__Empresa__CodCoor__25518C17">
+            <End Role="CoordinadorEPP" EntitySet="CoordinadorEPP" />
+            <End Role="Empresa" EntitySet="Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estudiant__CodDo__1EA48E88" Association="Self.FK__Estudiant__CodDo__1EA48E88">
+            <End Role="DocenteSupervisorEPP" EntitySet="DocenteSupervisorEPP" />
+            <End Role="Estudiante" EntitySet="Estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estudiant__CodUs__1F98B2C1" Association="Self.FK__Estudiant__CodUs__1F98B2C1">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Estudiante" EntitySet="Estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Informe__CodUsua__282DF8C2" Association="Self.FK__Informe__CodUsua__282DF8C2">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Informe" EntitySet="Informe" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformeAv__CodIn__30C33EC3" Association="Self.FK__InformeAv__CodIn__30C33EC3">
+            <End Role="Informe" EntitySet="Informe" />
+            <End Role="InformeAvanceEPP" EntitySet="InformeAvanceEPP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformeDe__CodIn__2B0A656D" Association="Self.FK__InformeDe__CodIn__2B0A656D">
+            <End Role="Informe" EntitySet="Informe" />
+            <End Role="InformeDeSupervisionEPP" EntitySet="InformeDeSupervisionEPP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformeFi__CodIn__339FAB6E" Association="Self.FK__InformeFi__CodIn__339FAB6E">
+            <End Role="Informe" EntitySet="Informe" />
+            <End Role="InformeFinalEPP" EntitySet="InformeFinalEPP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PlanDeTra__CodIn__367C1819" Association="Self.FK__PlanDeTra__CodIn__367C1819">
+            <End Role="Informe" EntitySet="Informe" />
+            <End Role="PlanDeTrabajoEPP" EntitySet="PlanDeTrabajoEPP" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_PPPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CartaDePresentacion">
+          <Key>
+            <PropertyRef Name="CodCartaPresentacion" />
+          </Key>
+          <Property Name="CodCartaPresentacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Archivo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CodInforme" Type="Int32" />
+          <NavigationProperty Name="Informe" Relationship="Self.FK__CartaDePr__CodIn__2DE6D218" FromRole="CartaDePresentacion" ToRole="Informe" />
+        </EntityType>
+        <EntityType Name="CoordinadorEPP">
+          <Key>
+            <PropertyRef Name="CodCoordinador" />
+          </Key>
+          <Property Name="CodCoordinador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="CodUsuario" Type="Int32" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Coordinad__CodUs__22751F6C" FromRole="CoordinadorEPP" ToRole="Usuario" />
+          <NavigationProperty Name="Empresa" Relationship="Self.FK__Empresa__CodCoor__25518C17" FromRole="CoordinadorEPP" ToRole="Empresa" />
+        </EntityType>
+        <EntityType Name="DirectorEPIS">
+          <Key>
+            <PropertyRef Name="CodDirectorEPIS" />
+          </Key>
+          <Property Name="CodDirectorEPIS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="CodUsuario" Type="Int32" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__DirectorE__CodUs__18EBB532" FromRole="DirectorEPIS" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="DocenteSupervisorEPP">
+          <Key>
+            <PropertyRef Name="CodDocenteSupervisor" />
+          </Key>
+          <Property Name="CodDocenteSupervisor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="CodUsuario" Type="Int32" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__DocenteSu__CodUs__1BC821DD" FromRole="DocenteSupervisorEPP" ToRole="Usuario" />
+          <NavigationProperty Name="Estudiante" Relationship="Self.FK__Estudiant__CodDo__1EA48E88" FromRole="DocenteSupervisorEPP" ToRole="Estudiante" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="CodEmpresa" />
+          </Key>
+          <Property Name="CodEmpresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Perfil" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RequisitosGenerales" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CronogramaConvocatoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Beneficios" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fechaLimitePostulacion" Type="DateTime" Precision="0" />
+          <Property Name="CodCoordinador" Type="Int32" />
+          <NavigationProperty Name="CoordinadorEPP" Relationship="Self.FK__Empresa__CodCoor__25518C17" FromRole="Empresa" ToRole="CoordinadorEPP" />
+        </EntityType>
+        <EntityType Name="Estudiante">
+          <Key>
+            <PropertyRef Name="CodEstudiante" />
+          </Key>
+          <Property Name="CodEstudiante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="CodDocenteSupervisor" Type="Int32" />
+          <Property Name="CodUsuario" Type="Int32" />
+          <NavigationProperty Name="DocenteSupervisorEPP" Relationship="Self.FK__Estudiant__CodDo__1EA48E88" FromRole="Estudiante" ToRole="DocenteSupervisorEPP" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Estudiant__CodUs__1F98B2C1" FromRole="Estudiante" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Informe">
+          <Key>
+            <PropertyRef Name="CodInforme" />
+          </Key>
+          <Property Name="CodInforme" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoInforme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Archivo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="FechaDeSubida" Type="DateTime" Precision="0" />
+          <Property Name="Estado" Type="Boolean" />
+          <Property Name="Observaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CodUsuario" Type="Int32" />
+          <NavigationProperty Name="CartaDePresentacion" Relationship="Self.FK__CartaDePr__CodIn__2DE6D218" FromRole="Informe" ToRole="CartaDePresentacion" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Informe__CodUsua__282DF8C2" FromRole="Informe" ToRole="Usuario" />
+          <NavigationProperty Name="InformeAvanceEPP" Relationship="Self.FK__InformeAv__CodIn__30C33EC3" FromRole="Informe" ToRole="InformeAvanceEPP" />
+          <NavigationProperty Name="InformeDeSupervisionEPP" Relationship="Self.FK__InformeDe__CodIn__2B0A656D" FromRole="Informe" ToRole="InformeDeSupervisionEPP" />
+          <NavigationProperty Name="InformeFinalEPP" Relationship="Self.FK__InformeFi__CodIn__339FAB6E" FromRole="Informe" ToRole="InformeFinalEPP" />
+          <NavigationProperty Name="PlanDeTrabajoEPP" Relationship="Self.FK__PlanDeTra__CodIn__367C1819" FromRole="Informe" ToRole="PlanDeTrabajoEPP" />
+        </EntityType>
+        <EntityType Name="InformeAvanceEPP">
+          <Key>
+            <PropertyRef Name="CodInformeAvanceEPP" />
+          </Key>
+          <Property Name="CodInformeAvanceEPP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Archivo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CodInforme" Type="Int32" />
+          <NavigationProperty Name="Informe" Relationship="Self.FK__InformeAv__CodIn__30C33EC3" FromRole="InformeAvanceEPP" ToRole="Informe" />
+        </EntityType>
+        <EntityType Name="InformeDeSupervisionEPP">
+          <Key>
+            <PropertyRef Name="CodInformeDeSupervisionEPP" />
+          </Key>
+          <Property Name="CodInformeDeSupervisionEPP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Calificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SupervisorACargoEmpresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Archivo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CodInforme" Type="Int32" />
+          <NavigationProperty Name="Informe" Relationship="Self.FK__InformeDe__CodIn__2B0A656D" FromRole="InformeDeSupervisionEPP" ToRole="Informe" />
+        </EntityType>
+        <EntityType Name="InformeFinalEPP">
+          <Key>
+            <PropertyRef Name="CodInformeFinalEPP" />
+          </Key>
+          <Property Name="CodInformeFinalEPP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Archivo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CodInforme" Type="Int32" />
+          <NavigationProperty Name="Informe" Relationship="Self.FK__InformeFi__CodIn__339FAB6E" FromRole="InformeFinalEPP" ToRole="Informe" />
+        </EntityType>
+        <EntityType Name="PlanDeTrabajoEPP">
+          <Key>
+            <PropertyRef Name="CodPlanDeTrabajoEPP" />
+          </Key>
+          <Property Name="CodPlanDeTrabajoEPP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Archivo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CodInforme" Type="Int32" />
+          <NavigationProperty Name="Informe" Relationship="Self.FK__PlanDeTra__CodIn__367C1819" FromRole="PlanDeTrabajoEPP" ToRole="Informe" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="CodUsuario" />
+          </Key>
+          <Property Name="CodUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Clave" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CoordinadorEPP" Relationship="Self.FK__Coordinad__CodUs__22751F6C" FromRole="Usuario" ToRole="CoordinadorEPP" />
+          <NavigationProperty Name="DirectorEPIS" Relationship="Self.FK__DirectorE__CodUs__18EBB532" FromRole="Usuario" ToRole="DirectorEPIS" />
+          <NavigationProperty Name="DocenteSupervisorEPP" Relationship="Self.FK__DocenteSu__CodUs__1BC821DD" FromRole="Usuario" ToRole="DocenteSupervisorEPP" />
+          <NavigationProperty Name="Estudiante" Relationship="Self.FK__Estudiant__CodUs__1F98B2C1" FromRole="Usuario" ToRole="Estudiante" />
+          <NavigationProperty Name="Informe" Relationship="Self.FK__Informe__CodUsua__282DF8C2" FromRole="Usuario" ToRole="Informe" />
+        </EntityType>
+        <Association Name="FK__CartaDePr__CodIn__2DE6D218">
+          <End Role="Informe" Type="Self.Informe" Multiplicity="0..1" />
+          <End Role="CartaDePresentacion" Type="Self.CartaDePresentacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Informe">
+              <PropertyRef Name="CodInforme" />
+            </Principal>
+            <Dependent Role="CartaDePresentacion">
+              <PropertyRef Name="CodInforme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Coordinad__CodUs__22751F6C">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="CoordinadorEPP" Type="Self.CoordinadorEPP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="CodUsuario" />
+            </Principal>
+            <Dependent Role="CoordinadorEPP">
+              <PropertyRef Name="CodUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empresa__CodCoor__25518C17">
+          <End Role="CoordinadorEPP" Type="Self.CoordinadorEPP" Multiplicity="0..1" />
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CoordinadorEPP">
+              <PropertyRef Name="CodCoordinador" />
+            </Principal>
+            <Dependent Role="Empresa">
+              <PropertyRef Name="CodCoordinador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DirectorE__CodUs__18EBB532">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="DirectorEPIS" Type="Self.DirectorEPIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="CodUsuario" />
+            </Principal>
+            <Dependent Role="DirectorEPIS">
+              <PropertyRef Name="CodUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DocenteSu__CodUs__1BC821DD">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="DocenteSupervisorEPP" Type="Self.DocenteSupervisorEPP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="CodUsuario" />
+            </Principal>
+            <Dependent Role="DocenteSupervisorEPP">
+              <PropertyRef Name="CodUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estudiant__CodDo__1EA48E88">
+          <End Role="DocenteSupervisorEPP" Type="Self.DocenteSupervisorEPP" Multiplicity="0..1" />
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocenteSupervisorEPP">
+              <PropertyRef Name="CodDocenteSupervisor" />
+            </Principal>
+            <Dependent Role="Estudiante">
+              <PropertyRef Name="CodDocenteSupervisor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estudiant__CodUs__1F98B2C1">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="CodUsuario" />
+            </Principal>
+            <Dependent Role="Estudiante">
+              <PropertyRef Name="CodUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Informe__CodUsua__282DF8C2">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Informe" Type="Self.Informe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="CodUsuario" />
+            </Principal>
+            <Dependent Role="Informe">
+              <PropertyRef Name="CodUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformeAv__CodIn__30C33EC3">
+          <End Role="Informe" Type="Self.Informe" Multiplicity="0..1" />
+          <End Role="InformeAvanceEPP" Type="Self.InformeAvanceEPP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Informe">
+              <PropertyRef Name="CodInforme" />
+            </Principal>
+            <Dependent Role="InformeAvanceEPP">
+              <PropertyRef Name="CodInforme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformeDe__CodIn__2B0A656D">
+          <End Role="Informe" Type="Self.Informe" Multiplicity="0..1" />
+          <End Role="InformeDeSupervisionEPP" Type="Self.InformeDeSupervisionEPP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Informe">
+              <PropertyRef Name="CodInforme" />
+            </Principal>
+            <Dependent Role="InformeDeSupervisionEPP">
+              <PropertyRef Name="CodInforme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformeFi__CodIn__339FAB6E">
+          <End Role="Informe" Type="Self.Informe" Multiplicity="0..1" />
+          <End Role="InformeFinalEPP" Type="Self.InformeFinalEPP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Informe">
+              <PropertyRef Name="CodInforme" />
+            </Principal>
+            <Dependent Role="InformeFinalEPP">
+              <PropertyRef Name="CodInforme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PlanDeTra__CodIn__367C1819">
+          <End Role="Informe" Type="Self.Informe" Multiplicity="0..1" />
+          <End Role="PlanDeTrabajoEPP" Type="Self.PlanDeTrabajoEPP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Informe">
+              <PropertyRef Name="CodInforme" />
+            </Principal>
+            <Dependent Role="PlanDeTrabajoEPP">
+              <PropertyRef Name="CodInforme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_PPPEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CartaDePresentacion" EntityType="Self.CartaDePresentacion" />
+          <EntitySet Name="CoordinadorEPP" EntityType="Self.CoordinadorEPP" />
+          <EntitySet Name="DirectorEPIS" EntityType="Self.DirectorEPIS" />
+          <EntitySet Name="DocenteSupervisorEPP" EntityType="Self.DocenteSupervisorEPP" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" />
+          <EntitySet Name="Estudiante" EntityType="Self.Estudiante" />
+          <EntitySet Name="Informe" EntityType="Self.Informe" />
+          <EntitySet Name="InformeAvanceEPP" EntityType="Self.InformeAvanceEPP" />
+          <EntitySet Name="InformeDeSupervisionEPP" EntityType="Self.InformeDeSupervisionEPP" />
+          <EntitySet Name="InformeFinalEPP" EntityType="Self.InformeFinalEPP" />
+          <EntitySet Name="PlanDeTrabajoEPP" EntityType="Self.PlanDeTrabajoEPP" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK__CartaDePr__CodIn__2DE6D218" Association="Self.FK__CartaDePr__CodIn__2DE6D218">
+            <End Role="Informe" EntitySet="Informe" />
+            <End Role="CartaDePresentacion" EntitySet="CartaDePresentacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Coordinad__CodUs__22751F6C" Association="Self.FK__Coordinad__CodUs__22751F6C">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="CoordinadorEPP" EntitySet="CoordinadorEPP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empresa__CodCoor__25518C17" Association="Self.FK__Empresa__CodCoor__25518C17">
+            <End Role="CoordinadorEPP" EntitySet="CoordinadorEPP" />
+            <End Role="Empresa" EntitySet="Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DirectorE__CodUs__18EBB532" Association="Self.FK__DirectorE__CodUs__18EBB532">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="DirectorEPIS" EntitySet="DirectorEPIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DocenteSu__CodUs__1BC821DD" Association="Self.FK__DocenteSu__CodUs__1BC821DD">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="DocenteSupervisorEPP" EntitySet="DocenteSupervisorEPP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estudiant__CodDo__1EA48E88" Association="Self.FK__Estudiant__CodDo__1EA48E88">
+            <End Role="DocenteSupervisorEPP" EntitySet="DocenteSupervisorEPP" />
+            <End Role="Estudiante" EntitySet="Estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estudiant__CodUs__1F98B2C1" Association="Self.FK__Estudiant__CodUs__1F98B2C1">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Estudiante" EntitySet="Estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Informe__CodUsua__282DF8C2" Association="Self.FK__Informe__CodUsua__282DF8C2">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Informe" EntitySet="Informe" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformeAv__CodIn__30C33EC3" Association="Self.FK__InformeAv__CodIn__30C33EC3">
+            <End Role="Informe" EntitySet="Informe" />
+            <End Role="InformeAvanceEPP" EntitySet="InformeAvanceEPP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformeDe__CodIn__2B0A656D" Association="Self.FK__InformeDe__CodIn__2B0A656D">
+            <End Role="Informe" EntitySet="Informe" />
+            <End Role="InformeDeSupervisionEPP" EntitySet="InformeDeSupervisionEPP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformeFi__CodIn__339FAB6E" Association="Self.FK__InformeFi__CodIn__339FAB6E">
+            <End Role="Informe" EntitySet="Informe" />
+            <End Role="InformeFinalEPP" EntitySet="InformeFinalEPP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PlanDeTra__CodIn__367C1819" Association="Self.FK__PlanDeTra__CodIn__367C1819">
+            <End Role="Informe" EntitySet="Informe" />
+            <End Role="PlanDeTrabajoEPP" EntitySet="PlanDeTrabajoEPP" />
+          </AssociationSet>
+          <FunctionImport Name="spActualizarCartaDePresentacion" ReturnType="Collection(DB_PPPModel.spActualizarCartaDePresentacion_Result)">
+            <Parameter Name="CodCartaPresentacion" Mode="In" Type="Int32" />
+            <Parameter Name="Archivo" Mode="In" Type="Binary" />
+            <Parameter Name="CodInforme" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spActualizarCoordinadorEPP" ReturnType="Collection(DB_PPPModel.spActualizarCoordinadorEPP_Result)">
+            <Parameter Name="CodCoordinador" Mode="In" Type="Int32" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="Telefono" Mode="In" Type="String" />
+            <Parameter Name="CodUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spActualizarDirectorEPIS" ReturnType="Collection(DB_PPPModel.spActualizarDirectorEPIS_Result)">
+            <Parameter Name="CodDirectorEPIS" Mode="In" Type="Int32" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="Telefono" Mode="In" Type="String" />
+            <Parameter Name="CodUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spActualizarDocenteSupervisorEPP" ReturnType="Collection(DB_PPPModel.spActualizarDocenteSupervisorEPP_Result)">
+            <Parameter Name="CodDocenteSupervisor" Mode="In" Type="Int32" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="Telefono" Mode="In" Type="String" />
+            <Parameter Name="CodUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spActualizarEmpresa" ReturnType="Collection(DB_PPPModel.spActualizarEmpresa_Result)">
+            <Parameter Name="CodEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="Perfil" Mode="In" Type="String" />
+            <Parameter Name="RequisitosGenerales" Mode="In" Type="String" />
+            <Parameter Name="CronogramaConvocatoria" Mode="In" Type="String" />
+            <Parameter Name="Beneficios" Mode="In" Type="String" />
+            <Parameter Name="fechaLimitePostulacion" Mode="In" Type="DateTime" />
+            <Parameter Name="CodCoordinador" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spActualizarEstudiante" ReturnType="Collection(DB_PPPModel.spActualizarEstudiante_Result)">
+            <Parameter Name="CodEstudiante" Mode="In" Type="Int32" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="Telefono" Mode="In" Type="String" />
+            <Parameter Name="CodDocenteSupervisor" Mode="In" Type="Int32" />
+            <Parameter Name="CodUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spActualizarInforme" ReturnType="Collection(DB_PPPModel.spActualizarInforme_Result)">
+            <Parameter Name="CodInforme" Mode="In" Type="Int32" />
+            <Parameter Name="TipoInforme" Mode="In" Type="String" />
+            <Parameter Name="Archivo" Mode="In" Type="Binary" />
+            <Parameter Name="FechaDeSubida" Mode="In" Type="DateTime" />
+            <Parameter Name="Estado" Mode="In" Type="Boolean" />
+            <Parameter Name="Observaciones" Mode="In" Type="String" />
+            <Parameter Name="CodUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spActualizarInformeAvanceEPP" ReturnType="Collection(DB_PPPModel.spActualizarInformeAvanceEPP_Result)">
+            <Parameter Name="CodInformeAvanceEPP" Mode="In" Type="Int32" />
+            <Parameter Name="Archivo" Mode="In" Type="Binary" />
+            <Parameter Name="CodInforme" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spActualizarInformeDeSupervisionEPP" ReturnType="Collection(DB_PPPModel.spActualizarInformeDeSupervisionEPP_Result)">
+            <Parameter Name="CodInformeDeSupervisionEPP" Mode="In" Type="Int32" />
+            <Parameter Name="Calificacion" Mode="In" Type="String" />
+            <Parameter Name="SupervisorACargoEmpresa" Mode="In" Type="String" />
+            <Parameter Name="Archivo" Mode="In" Type="Binary" />
+            <Parameter Name="CodInforme" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spActualizarInformeFinalEPP" ReturnType="Collection(DB_PPPModel.spActualizarInformeFinalEPP_Result)">
+            <Parameter Name="CodInformeFinalEPP" Mode="In" Type="Int32" />
+            <Parameter Name="Archivo" Mode="In" Type="Binary" />
+            <Parameter Name="CodInforme" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spActualizarPlanDeTrabajoEPP" ReturnType="Collection(DB_PPPModel.spActualizarPlanDeTrabajoEPP_Result)">
+            <Parameter Name="CodPlanDeTrabajoEPP" Mode="In" Type="Int32" />
+            <Parameter Name="Archivo" Mode="In" Type="Binary" />
+            <Parameter Name="CodInforme" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spActualizarUsuario" ReturnType="Collection(DB_PPPModel.spActualizarUsuario_Result)">
+            <Parameter Name="CodUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="Usuario" Mode="In" Type="String" />
+            <Parameter Name="Clave" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spAgregarCartaDePresentacion" ReturnType="Collection(DB_PPPModel.spAgregarCartaDePresentacion_Result)">
+            <Parameter Name="CodCartaPresentacion" Mode="In" Type="Int32" />
+            <Parameter Name="Archivo" Mode="In" Type="Binary" />
+            <Parameter Name="CodInforme" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spAgregarCoordinadorEPP" ReturnType="Collection(DB_PPPModel.spAgregarCoordinadorEPP_Result)">
+            <Parameter Name="CodCoordinador" Mode="In" Type="Int32" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="Telefono" Mode="In" Type="String" />
+            <Parameter Name="CodUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spAgregarDirectorEPIS" ReturnType="Collection(DB_PPPModel.spAgregarDirectorEPIS_Result)">
+            <Parameter Name="CodDirectorEPIS" Mode="In" Type="Int32" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="Telefono" Mode="In" Type="String" />
+            <Parameter Name="CodUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spAgregarDocenteSupervisorEPP" ReturnType="Collection(DB_PPPModel.spAgregarDocenteSupervisorEPP_Result)">
+            <Parameter Name="CodDocenteSupervisor" Mode="In" Type="Int32" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="Telefono" Mode="In" Type="String" />
+            <Parameter Name="CodUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spAgregarEmpresa" ReturnType="Collection(DB_PPPModel.spAgregarEmpresa_Result)">
+            <Parameter Name="CodEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="Perfil" Mode="In" Type="String" />
+            <Parameter Name="RequisitosGenerales" Mode="In" Type="String" />
+            <Parameter Name="CronogramaConvocatoria" Mode="In" Type="String" />
+            <Parameter Name="Beneficios" Mode="In" Type="String" />
+            <Parameter Name="fechaLimitePostulacion" Mode="In" Type="DateTime" />
+            <Parameter Name="CodCoordinador" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spAgregarEstudiante" ReturnType="Collection(DB_PPPModel.spAgregarEstudiante_Result)">
+            <Parameter Name="CodEstudiante" Mode="In" Type="Int32" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="Telefono" Mode="In" Type="String" />
+            <Parameter Name="CodDocenteSupervisor" Mode="In" Type="Int32" />
+            <Parameter Name="CodUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spAgregarInforme" ReturnType="Collection(DB_PPPModel.spAgregarInforme_Result)">
+            <Parameter Name="CodInforme" Mode="In" Type="Int32" />
+            <Parameter Name="TipoInforme" Mode="In" Type="String" />
+            <Parameter Name="Archivo" Mode="In" Type="Binary" />
+            <Parameter Name="FechaDeSubida" Mode="In" Type="DateTime" />
+            <Parameter Name="Estado" Mode="In" Type="Boolean" />
+            <Parameter Name="Observaciones" Mode="In" Type="String" />
+            <Parameter Name="CodUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spAgregarInformeAvanceEPP" ReturnType="Collection(DB_PPPModel.spAgregarInformeAvanceEPP_Result)">
+            <Parameter Name="CodInformeAvanceEPP" Mode="In" Type="Int32" />
+            <Parameter Name="Archivo" Mode="In" Type="Binary" />
+            <Parameter Name="CodInforme" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spAgregarInformeDeSupervisionEPP" ReturnType="Collection(DB_PPPModel.spAgregarInformeDeSupervisionEPP_Result)">
+            <Parameter Name="CodInformeDeSupervisionEPP" Mode="In" Type="Int32" />
+            <Parameter Name="Calificacion" Mode="In" Type="String" />
+            <Parameter Name="SupervisorACargoEmpresa" Mode="In" Type="String" />
+            <Parameter Name="Archivo" Mode="In" Type="Binary" />
+            <Parameter Name="CodInforme" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spAgregarInformeFinalEPP" ReturnType="Collection(DB_PPPModel.spAgregarInformeFinalEPP_Result)">
+            <Parameter Name="CodInformeFinalEPP" Mode="In" Type="Int32" />
+            <Parameter Name="Archivo" Mode="In" Type="Binary" />
+            <Parameter Name="CodInforme" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spAgregarPlanDeTrabajoEPP" ReturnType="Collection(DB_PPPModel.spAgregarPlanDeTrabajoEPP_Result)">
+            <Parameter Name="CodPlanDeTrabajoEPP" Mode="In" Type="Int32" />
+            <Parameter Name="Archivo" Mode="In" Type="Binary" />
+            <Parameter Name="CodInforme" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spAgregarUsuario" ReturnType="Collection(DB_PPPModel.spAgregarUsuario_Result)">
+            <Parameter Name="CodUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="Usuario" Mode="In" Type="String" />
+            <Parameter Name="Clave" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEliminarCartaDePresentacion" ReturnType="Collection(DB_PPPModel.spEliminarCartaDePresentacion_Result)">
+            <Parameter Name="CodCartaPresentacion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEliminarCoordinadorEPP" ReturnType="Collection(DB_PPPModel.spEliminarCoordinadorEPP_Result)">
+            <Parameter Name="CodCoordinador" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEliminarDirectorEPIS" ReturnType="Collection(DB_PPPModel.spEliminarDirectorEPIS_Result)">
+            <Parameter Name="CodDirectorEPIS" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEliminarDocenteSupervisorEPP" ReturnType="Collection(DB_PPPModel.spEliminarDocenteSupervisorEPP_Result)">
+            <Parameter Name="CodDocenteSupervisor" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEliminarEmpresa" ReturnType="Collection(DB_PPPModel.spEliminarEmpresa_Result)">
+            <Parameter Name="CodEmpresa" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEliminarEstudiante" ReturnType="Collection(DB_PPPModel.spEliminarEstudiante_Result)">
+            <Parameter Name="CodEstudiante" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEliminarInforme" ReturnType="Collection(DB_PPPModel.spEliminarInforme_Result)">
+            <Parameter Name="CodInforme" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEliminarInformeAvanceEPP" ReturnType="Collection(DB_PPPModel.spEliminarInformeAvanceEPP_Result)">
+            <Parameter Name="CodInformeAvanceEPP" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEliminarInformeDeSupervisionEPP" ReturnType="Collection(DB_PPPModel.spEliminarInformeDeSupervisionEPP_Result)">
+            <Parameter Name="CodInformeDeSupervisionEPP" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEliminarInformeFinalEPP" ReturnType="Collection(DB_PPPModel.spEliminarInformeFinalEPP_Result)">
+            <Parameter Name="CodInformeFinalEPP" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEliminarPlanDeTrabajoEPP" ReturnType="Collection(DB_PPPModel.spEliminarPlanDeTrabajoEPP_Result)">
+            <Parameter Name="CodPlanDeTrabajoEPP" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEliminarUsuario" ReturnType="Collection(DB_PPPModel.spEliminarUsuario_Result)">
+            <Parameter Name="CodUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spListarCartasDePresentacion" ReturnType="Collection(DB_PPPModel.spListarCartasDePresentacion_Result)" />
+          <FunctionImport Name="spListarCoordinadoresPPP" ReturnType="Collection(DB_PPPModel.spListarCoordinadoresPPP_Result)" />
+          <FunctionImport Name="spListarDirectoresEPIS" ReturnType="Collection(DB_PPPModel.spListarDirectoresEPIS_Result)" />
+          <FunctionImport Name="spListarDocentesSupervisoresEPP" ReturnType="Collection(DB_PPPModel.spListarDocentesSupervisoresEPP_Result)" />
+          <FunctionImport Name="spListarEmpresas" ReturnType="Collection(DB_PPPModel.spListarEmpresas_Result)" />
+          <FunctionImport Name="spListarEstudiantes" ReturnType="Collection(DB_PPPModel.spListarEstudiantes_Result)" />
+          <FunctionImport Name="spListarInformes" ReturnType="Collection(DB_PPPModel.spListarInformes_Result)" />
+          <FunctionImport Name="spListarInformesAvanceEPP" ReturnType="Collection(DB_PPPModel.spListarInformesAvanceEPP_Result)" />
+          <FunctionImport Name="spListarInformesDeSupervision" ReturnType="Collection(DB_PPPModel.spListarInformesDeSupervision_Result)" />
+          <FunctionImport Name="spListarInformesFinalesEPP" ReturnType="Collection(DB_PPPModel.spListarInformesFinalesEPP_Result)" />
+          <FunctionImport Name="spListarPlanesDeTrabajo" ReturnType="Collection(DB_PPPModel.spListarPlanesDeTrabajo_Result)" />
+          <FunctionImport Name="spListarUsuarios" ReturnType="Collection(DB_PPPModel.spListarUsuarios_Result)" />
+          <FunctionImport Name="spValidarUsuario" ReturnType="Collection(Int32)">
+            <Parameter Name="Usuario" Mode="In" Type="String" />
+            <Parameter Name="Clave" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspBuscarCartaDePresentacion" ReturnType="Collection(DB_PPPModel.uspBuscarCartaDePresentacion_Result)">
+            <Parameter Name="texto" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspBuscarCoordinadorEPP" ReturnType="Collection(DB_PPPModel.uspBuscarCoordinadorEPP_Result)">
+            <Parameter Name="texto" Mode="In" Type="String" />
+            <Parameter Name="criterio" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspBuscarDirectorEPIS" ReturnType="Collection(DB_PPPModel.uspBuscarDirectorEPIS_Result)">
+            <Parameter Name="texto" Mode="In" Type="String" />
+            <Parameter Name="criterio" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspBuscarDocenteSupervisorEPP" ReturnType="Collection(DB_PPPModel.uspBuscarDocenteSupervisorEPP_Result)">
+            <Parameter Name="texto" Mode="In" Type="String" />
+            <Parameter Name="criterio" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspBuscarEmpresa" ReturnType="Collection(DB_PPPModel.uspBuscarEmpresa_Result)">
+            <Parameter Name="texto" Mode="In" Type="String" />
+            <Parameter Name="criterio" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspBuscarEstudiante" ReturnType="Collection(DB_PPPModel.uspBuscarEstudiante_Result)">
+            <Parameter Name="texto" Mode="In" Type="String" />
+            <Parameter Name="criterio" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspBuscarInforme" ReturnType="Collection(DB_PPPModel.uspBuscarInforme_Result)">
+            <Parameter Name="texto" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspBuscarInformeAvanceEPP" ReturnType="Collection(DB_PPPModel.uspBuscarInformeAvanceEPP_Result)">
+            <Parameter Name="texto" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspBuscarInformeDeSupervisionEPP" ReturnType="Collection(DB_PPPModel.uspBuscarInformeDeSupervisionEPP_Result)">
+            <Parameter Name="texto" Mode="In" Type="String" />
+            <Parameter Name="criterio" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspBuscarInformeFinalEPP" ReturnType="Collection(DB_PPPModel.uspBuscarInformeFinalEPP_Result)">
+            <Parameter Name="texto" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspBuscarPlanDeTrabajoEPP" ReturnType="Collection(DB_PPPModel.uspBuscarPlanDeTrabajoEPP_Result)">
+            <Parameter Name="texto" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspBuscarUsuario" ReturnType="Collection(DB_PPPModel.uspBuscarUsuario_Result)">
+            <Parameter Name="texto" Mode="In" Type="String" />
+            <Parameter Name="criterio" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="spActualizarCartaDePresentacion_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="47" />
+        </ComplexType>
+        <ComplexType Name="spActualizarCoordinadorEPP_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="44" />
+        </ComplexType>
+        <ComplexType Name="spActualizarDirectorEPIS_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="42" />
+        </ComplexType>
+        <ComplexType Name="spActualizarDocenteSupervisorEPP_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="51" />
+        </ComplexType>
+        <ComplexType Name="spActualizarEmpresa_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="33" />
+        </ComplexType>
+        <ComplexType Name="spActualizarEstudiante_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="36" />
+        </ComplexType>
+        <ComplexType Name="spActualizarInforme_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="33" />
+        </ComplexType>
+        <ComplexType Name="spActualizarInformeAvanceEPP_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spActualizarInformeDeSupervisionEPP_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="48" />
+        </ComplexType>
+        <ComplexType Name="spActualizarInformeFinalEPP_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="46" />
+        </ComplexType>
+        <ComplexType Name="spActualizarPlanDeTrabajoEPP_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="48" />
+        </ComplexType>
+        <ComplexType Name="spActualizarUsuario_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="33" />
+        </ComplexType>
+        <ComplexType Name="spAgregarCartaDePresentacion_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="45" />
+        </ComplexType>
+        <ComplexType Name="spAgregarCoordinadorEPP_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="42" />
+        </ComplexType>
+        <ComplexType Name="spAgregarDirectorEPIS_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="40" />
+        </ComplexType>
+        <ComplexType Name="spAgregarDocenteSupervisorEPP_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="49" />
+        </ComplexType>
+        <ComplexType Name="spAgregarEmpresa_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="31" />
+        </ComplexType>
+        <ComplexType Name="spAgregarEstudiante_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="34" />
+        </ComplexType>
+        <ComplexType Name="spAgregarInforme_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="31" />
+        </ComplexType>
+        <ComplexType Name="spAgregarInformeAvanceEPP_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="48" />
+        </ComplexType>
+        <ComplexType Name="spAgregarInformeDeSupervisionEPP_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="46" />
+        </ComplexType>
+        <ComplexType Name="spAgregarInformeFinalEPP_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="44" />
+        </ComplexType>
+        <ComplexType Name="spAgregarPlanDeTrabajoEPP_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="46" />
+        </ComplexType>
+        <ComplexType Name="spAgregarUsuario_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="31" />
+        </ComplexType>
+        <ComplexType Name="spEliminarCartaDePresentacion_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="45" />
+        </ComplexType>
+        <ComplexType Name="spEliminarCoordinadorEPP_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="42" />
+        </ComplexType>
+        <ComplexType Name="spEliminarDirectorEPIS_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="40" />
+        </ComplexType>
+        <ComplexType Name="spEliminarDocenteSupervisorEPP_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="49" />
+        </ComplexType>
+        <ComplexType Name="spEliminarEmpresa_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="31" />
+        </ComplexType>
+        <ComplexType Name="spEliminarEstudiante_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="34" />
+        </ComplexType>
+        <ComplexType Name="spEliminarInforme_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="31" />
+        </ComplexType>
+        <ComplexType Name="spEliminarInformeAvanceEPP_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="48" />
+        </ComplexType>
+        <ComplexType Name="spEliminarInformeDeSupervisionEPP_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="46" />
+        </ComplexType>
+        <ComplexType Name="spEliminarInformeFinalEPP_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="44" />
+        </ComplexType>
+        <ComplexType Name="spEliminarPlanDeTrabajoEPP_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="46" />
+        </ComplexType>
+        <ComplexType Name="spEliminarUsuario_Result">
+          <Property Type="Int32" Name="CodError" Nullable="false" />
+          <Property Type="String" Name="Mensaje" Nullable="false" MaxLength="31" />
+        </ComplexType>
+        <ComplexType Name="spListarCartasDePresentacion_Result">
+          <Property Type="Int32" Name="CodCartaPresentacion" Nullable="false" />
+          <Property Type="Binary" Name="Archivo" Nullable="true" />
+          <Property Type="Int32" Name="CodInforme" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spListarCoordinadoresPPP_Result">
+          <Property Type="Int32" Name="CodCoordinador" Nullable="false" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Telefono" Nullable="true" MaxLength="9" />
+          <Property Type="Int32" Name="CodUsuario" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spListarDirectoresEPIS_Result">
+          <Property Type="Int32" Name="CodDirectorEPIS" Nullable="false" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Telefono" Nullable="true" MaxLength="9" />
+          <Property Type="Int32" Name="CodUsuario" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spListarDocentesSupervisoresEPP_Result">
+          <Property Type="Int32" Name="CodDocenteSupervisor" Nullable="false" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Telefono" Nullable="true" MaxLength="9" />
+          <Property Type="Int32" Name="CodUsuario" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spListarEmpresas_Result">
+          <Property Type="Int32" Name="CodEmpresa" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Perfil" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="RequisitosGenerales" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="CronogramaConvocatoria" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Beneficios" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="fechaLimitePostulacion" Nullable="true" />
+          <Property Type="Int32" Name="CodCoordinador" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spListarEstudiantes_Result">
+          <Property Type="Int32" Name="CodEstudiante" Nullable="false" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Telefono" Nullable="true" MaxLength="9" />
+          <Property Type="Int32" Name="CodDocenteSupervisor" Nullable="true" />
+          <Property Type="Int32" Name="CodUsuario" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spListarInformes_Result">
+          <Property Type="Int32" Name="CodInforme" Nullable="false" />
+          <Property Type="String" Name="TipoInforme" Nullable="true" MaxLength="50" />
+          <Property Type="Binary" Name="Archivo" Nullable="true" />
+          <Property Type="DateTime" Name="FechaDeSubida" Nullable="true" />
+          <Property Type="Boolean" Name="Estado" Nullable="true" />
+          <Property Type="String" Name="Observaciones" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="CodUsuario" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spListarInformesAvanceEPP_Result">
+          <Property Type="Int32" Name="CodInformeAvanceEPP" Nullable="false" />
+          <Property Type="Binary" Name="Archivo" Nullable="true" />
+          <Property Type="Int32" Name="CodInforme" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spListarInformesDeSupervision_Result">
+          <Property Type="Int32" Name="CodInformeDeSupervisionEPP" Nullable="false" />
+          <Property Type="String" Name="Calificacion" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SupervisorACargoEmpresa" Nullable="true" MaxLength="50" />
+          <Property Type="Binary" Name="Archivo" Nullable="true" />
+          <Property Type="Int32" Name="CodInforme" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spListarInformesFinalesEPP_Result">
+          <Property Type="Int32" Name="CodInformeFinalEPP" Nullable="false" />
+          <Property Type="Binary" Name="Archivo" Nullable="true" />
+          <Property Type="Int32" Name="CodInforme" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spListarPlanesDeTrabajo_Result">
+          <Property Type="Int32" Name="CodPlanDeTrabajoEPP" Nullable="false" />
+          <Property Type="Binary" Name="Archivo" Nullable="true" />
+          <Property Type="Int32" Name="CodInforme" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spListarUsuarios_Result">
+          <Property Type="Int32" Name="CodUsuario" Nullable="false" />
+          <Property Type="String" Name="Usuario" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Clave" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspBuscarCartaDePresentacion_Result">
+          <Property Type="Int32" Name="CodCartaPresentacion" Nullable="false" />
+          <Property Type="Binary" Name="Archivo" Nullable="true" />
+          <Property Type="Int32" Name="CodInforme" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspBuscarCoordinadorEPP_Result">
+          <Property Type="Int32" Name="CodCoordinador" Nullable="false" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Telefono" Nullable="true" MaxLength="9" />
+          <Property Type="Int32" Name="CodUsuario" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspBuscarDirectorEPIS_Result">
+          <Property Type="Int32" Name="CodDirectorEPIS" Nullable="false" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Telefono" Nullable="true" MaxLength="9" />
+          <Property Type="Int32" Name="CodUsuario" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspBuscarDocenteSupervisorEPP_Result">
+          <Property Type="Int32" Name="CodDocenteSupervisor" Nullable="false" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Telefono" Nullable="true" MaxLength="9" />
+          <Property Type="Int32" Name="CodUsuario" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspBuscarEmpresa_Result">
+          <Property Type="Int32" Name="CodEmpresa" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Perfil" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="RequisitosGenerales" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="CronogramaConvocatoria" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Beneficios" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="fechaLimitePostulacion" Nullable="true" />
+          <Property Type="Int32" Name="CodCoordinador" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspBuscarEstudiante_Result">
+          <Property Type="Int32" Name="CodEstudiante" Nullable="false" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Telefono" Nullable="true" MaxLength="9" />
+          <Property Type="Int32" Name="CodDocenteSupervisor" Nullable="true" />
+          <Property Type="Int32" Name="CodUsuario" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspBuscarInforme_Result">
+          <Property Type="Int32" Name="CodInforme" Nullable="false" />
+          <Property Type="String" Name="TipoInforme" Nullable="true" MaxLength="50" />
+          <Property Type="Binary" Name="Archivo" Nullable="true" />
+          <Property Type="DateTime" Name="FechaDeSubida" Nullable="true" />
+          <Property Type="Boolean" Name="Estado" Nullable="true" />
+          <Property Type="String" Name="Observaciones" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="CodUsuario" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspBuscarInformeAvanceEPP_Result">
+          <Property Type="Int32" Name="CodInformeAvanceEPP" Nullable="false" />
+          <Property Type="Binary" Name="Archivo" Nullable="true" />
+          <Property Type="Int32" Name="CodInforme" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspBuscarInformeDeSupervisionEPP_Result">
+          <Property Type="Int32" Name="CodInformeDeSupervisionEPP" Nullable="false" />
+          <Property Type="String" Name="Calificacion" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SupervisorACargoEmpresa" Nullable="true" MaxLength="50" />
+          <Property Type="Binary" Name="Archivo" Nullable="true" />
+          <Property Type="Int32" Name="CodInforme" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspBuscarInformeFinalEPP_Result">
+          <Property Type="Int32" Name="CodInformeFinalEPP" Nullable="false" />
+          <Property Type="Binary" Name="Archivo" Nullable="true" />
+          <Property Type="Int32" Name="CodInforme" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspBuscarPlanDeTrabajoEPP_Result">
+          <Property Type="Int32" Name="CodPlanDeTrabajoEPP" Nullable="false" />
+          <Property Type="Binary" Name="Archivo" Nullable="true" />
+          <Property Type="Int32" Name="CodInforme" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspBuscarUsuario_Result">
+          <Property Type="Int32" Name="CodUsuario" Nullable="false" />
+          <Property Type="String" Name="Usuario" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Clave" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_PPPModelStoreContainer" CdmEntityContainer="DB_PPPEntities1">
+          <EntitySetMapping Name="CartaDePresentacion">
+            <EntityTypeMapping TypeName="DB_PPPModel.CartaDePresentacion">
+              <MappingFragment StoreEntitySet="CartaDePresentacion">
+                <ScalarProperty Name="CodCartaPresentacion" ColumnName="CodCartaPresentacion" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="CodInforme" ColumnName="CodInforme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CoordinadorEPP">
+            <EntityTypeMapping TypeName="DB_PPPModel.CoordinadorEPP">
+              <MappingFragment StoreEntitySet="CoordinadorEPP">
+                <ScalarProperty Name="CodCoordinador" ColumnName="CodCoordinador" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DirectorEPIS">
+            <EntityTypeMapping TypeName="DB_PPPModel.DirectorEPIS">
+              <MappingFragment StoreEntitySet="DirectorEPIS">
+                <ScalarProperty Name="CodDirectorEPIS" ColumnName="CodDirectorEPIS" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocenteSupervisorEPP">
+            <EntityTypeMapping TypeName="DB_PPPModel.DocenteSupervisorEPP">
+              <MappingFragment StoreEntitySet="DocenteSupervisorEPP">
+                <ScalarProperty Name="CodDocenteSupervisor" ColumnName="CodDocenteSupervisor" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresa">
+            <EntityTypeMapping TypeName="DB_PPPModel.Empresa">
+              <MappingFragment StoreEntitySet="Empresa">
+                <ScalarProperty Name="CodEmpresa" ColumnName="CodEmpresa" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="RequisitosGenerales" ColumnName="RequisitosGenerales" />
+                <ScalarProperty Name="CronogramaConvocatoria" ColumnName="CronogramaConvocatoria" />
+                <ScalarProperty Name="Beneficios" ColumnName="Beneficios" />
+                <ScalarProperty Name="fechaLimitePostulacion" ColumnName="fechaLimitePostulacion" />
+                <ScalarProperty Name="CodCoordinador" ColumnName="CodCoordinador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estudiante">
+            <EntityTypeMapping TypeName="DB_PPPModel.Estudiante">
+              <MappingFragment StoreEntitySet="Estudiante">
+                <ScalarProperty Name="CodEstudiante" ColumnName="CodEstudiante" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="CodDocenteSupervisor" ColumnName="CodDocenteSupervisor" />
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Informe">
+            <EntityTypeMapping TypeName="DB_PPPModel.Informe">
+              <MappingFragment StoreEntitySet="Informe">
+                <ScalarProperty Name="CodInforme" ColumnName="CodInforme" />
+                <ScalarProperty Name="TipoInforme" ColumnName="TipoInforme" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="FechaDeSubida" ColumnName="FechaDeSubida" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformeAvanceEPP">
+            <EntityTypeMapping TypeName="DB_PPPModel.InformeAvanceEPP">
+              <MappingFragment StoreEntitySet="InformeAvanceEPP">
+                <ScalarProperty Name="CodInformeAvanceEPP" ColumnName="CodInformeAvanceEPP" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="CodInforme" ColumnName="CodInforme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformeDeSupervisionEPP">
+            <EntityTypeMapping TypeName="DB_PPPModel.InformeDeSupervisionEPP">
+              <MappingFragment StoreEntitySet="InformeDeSupervisionEPP">
+                <ScalarProperty Name="CodInformeDeSupervisionEPP" ColumnName="CodInformeDeSupervisionEPP" />
+                <ScalarProperty Name="Calificacion" ColumnName="Calificacion" />
+                <ScalarProperty Name="SupervisorACargoEmpresa" ColumnName="SupervisorACargoEmpresa" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="CodInforme" ColumnName="CodInforme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformeFinalEPP">
+            <EntityTypeMapping TypeName="DB_PPPModel.InformeFinalEPP">
+              <MappingFragment StoreEntitySet="InformeFinalEPP">
+                <ScalarProperty Name="CodInformeFinalEPP" ColumnName="CodInformeFinalEPP" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="CodInforme" ColumnName="CodInforme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlanDeTrabajoEPP">
+            <EntityTypeMapping TypeName="DB_PPPModel.PlanDeTrabajoEPP">
+              <MappingFragment StoreEntitySet="PlanDeTrabajoEPP">
+                <ScalarProperty Name="CodPlanDeTrabajoEPP" ColumnName="CodPlanDeTrabajoEPP" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="CodInforme" ColumnName="CodInforme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="DB_PPPModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+                <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spActualizarCartaDePresentacion" FunctionName="DB_PPPModel.Store.spActualizarCartaDePresentacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spActualizarCartaDePresentacion_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spActualizarCoordinadorEPP" FunctionName="DB_PPPModel.Store.spActualizarCoordinadorEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spActualizarCoordinadorEPP_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spActualizarDirectorEPIS" FunctionName="DB_PPPModel.Store.spActualizarDirectorEPIS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spActualizarDirectorEPIS_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spActualizarDocenteSupervisorEPP" FunctionName="DB_PPPModel.Store.spActualizarDocenteSupervisorEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spActualizarDocenteSupervisorEPP_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spActualizarEmpresa" FunctionName="DB_PPPModel.Store.spActualizarEmpresa">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spActualizarEmpresa_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spActualizarEstudiante" FunctionName="DB_PPPModel.Store.spActualizarEstudiante">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spActualizarEstudiante_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spActualizarInforme" FunctionName="DB_PPPModel.Store.spActualizarInforme">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spActualizarInforme_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spActualizarInformeAvanceEPP" FunctionName="DB_PPPModel.Store.spActualizarInformeAvanceEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spActualizarInformeAvanceEPP_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spActualizarInformeDeSupervisionEPP" FunctionName="DB_PPPModel.Store.spActualizarInformeDeSupervisionEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spActualizarInformeDeSupervisionEPP_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spActualizarInformeFinalEPP" FunctionName="DB_PPPModel.Store.spActualizarInformeFinalEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spActualizarInformeFinalEPP_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spActualizarPlanDeTrabajoEPP" FunctionName="DB_PPPModel.Store.spActualizarPlanDeTrabajoEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spActualizarPlanDeTrabajoEPP_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spActualizarUsuario" FunctionName="DB_PPPModel.Store.spActualizarUsuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spActualizarUsuario_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spAgregarCartaDePresentacion" FunctionName="DB_PPPModel.Store.spAgregarCartaDePresentacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spAgregarCartaDePresentacion_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spAgregarCoordinadorEPP" FunctionName="DB_PPPModel.Store.spAgregarCoordinadorEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spAgregarCoordinadorEPP_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spAgregarDirectorEPIS" FunctionName="DB_PPPModel.Store.spAgregarDirectorEPIS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spAgregarDirectorEPIS_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spAgregarDocenteSupervisorEPP" FunctionName="DB_PPPModel.Store.spAgregarDocenteSupervisorEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spAgregarDocenteSupervisorEPP_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spAgregarEmpresa" FunctionName="DB_PPPModel.Store.spAgregarEmpresa">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spAgregarEmpresa_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spAgregarEstudiante" FunctionName="DB_PPPModel.Store.spAgregarEstudiante">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spAgregarEstudiante_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spAgregarInforme" FunctionName="DB_PPPModel.Store.spAgregarInforme">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spAgregarInforme_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spAgregarInformeAvanceEPP" FunctionName="DB_PPPModel.Store.spAgregarInformeAvanceEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spAgregarInformeAvanceEPP_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spAgregarInformeDeSupervisionEPP" FunctionName="DB_PPPModel.Store.spAgregarInformeDeSupervisionEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spAgregarInformeDeSupervisionEPP_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spAgregarInformeFinalEPP" FunctionName="DB_PPPModel.Store.spAgregarInformeFinalEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spAgregarInformeFinalEPP_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spAgregarPlanDeTrabajoEPP" FunctionName="DB_PPPModel.Store.spAgregarPlanDeTrabajoEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spAgregarPlanDeTrabajoEPP_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spAgregarUsuario" FunctionName="DB_PPPModel.Store.spAgregarUsuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spAgregarUsuario_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spEliminarCartaDePresentacion" FunctionName="DB_PPPModel.Store.spEliminarCartaDePresentacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spEliminarCartaDePresentacion_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spEliminarCoordinadorEPP" FunctionName="DB_PPPModel.Store.spEliminarCoordinadorEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spEliminarCoordinadorEPP_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spEliminarDirectorEPIS" FunctionName="DB_PPPModel.Store.spEliminarDirectorEPIS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spEliminarDirectorEPIS_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spEliminarDocenteSupervisorEPP" FunctionName="DB_PPPModel.Store.spEliminarDocenteSupervisorEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spEliminarDocenteSupervisorEPP_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spEliminarEmpresa" FunctionName="DB_PPPModel.Store.spEliminarEmpresa">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spEliminarEmpresa_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spEliminarEstudiante" FunctionName="DB_PPPModel.Store.spEliminarEstudiante">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spEliminarEstudiante_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spEliminarInforme" FunctionName="DB_PPPModel.Store.spEliminarInforme">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spEliminarInforme_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spEliminarInformeAvanceEPP" FunctionName="DB_PPPModel.Store.spEliminarInformeAvanceEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spEliminarInformeAvanceEPP_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spEliminarInformeDeSupervisionEPP" FunctionName="DB_PPPModel.Store.spEliminarInformeDeSupervisionEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spEliminarInformeDeSupervisionEPP_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spEliminarInformeFinalEPP" FunctionName="DB_PPPModel.Store.spEliminarInformeFinalEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spEliminarInformeFinalEPP_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spEliminarPlanDeTrabajoEPP" FunctionName="DB_PPPModel.Store.spEliminarPlanDeTrabajoEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spEliminarPlanDeTrabajoEPP_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spEliminarUsuario" FunctionName="DB_PPPModel.Store.spEliminarUsuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spEliminarUsuario_Result">
+                <ScalarProperty Name="CodError" ColumnName="CodError" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spListarCartasDePresentacion" FunctionName="DB_PPPModel.Store.spListarCartasDePresentacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spListarCartasDePresentacion_Result">
+                <ScalarProperty Name="CodCartaPresentacion" ColumnName="CodCartaPresentacion" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="CodInforme" ColumnName="CodInforme" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spListarCoordinadoresPPP" FunctionName="DB_PPPModel.Store.spListarCoordinadoresPPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spListarCoordinadoresPPP_Result">
+                <ScalarProperty Name="CodCoordinador" ColumnName="CodCoordinador" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spListarDirectoresEPIS" FunctionName="DB_PPPModel.Store.spListarDirectoresEPIS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spListarDirectoresEPIS_Result">
+                <ScalarProperty Name="CodDirectorEPIS" ColumnName="CodDirectorEPIS" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spListarDocentesSupervisoresEPP" FunctionName="DB_PPPModel.Store.spListarDocentesSupervisoresEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spListarDocentesSupervisoresEPP_Result">
+                <ScalarProperty Name="CodDocenteSupervisor" ColumnName="CodDocenteSupervisor" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spListarEmpresas" FunctionName="DB_PPPModel.Store.spListarEmpresas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spListarEmpresas_Result">
+                <ScalarProperty Name="CodEmpresa" ColumnName="CodEmpresa" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="RequisitosGenerales" ColumnName="RequisitosGenerales" />
+                <ScalarProperty Name="CronogramaConvocatoria" ColumnName="CronogramaConvocatoria" />
+                <ScalarProperty Name="Beneficios" ColumnName="Beneficios" />
+                <ScalarProperty Name="fechaLimitePostulacion" ColumnName="fechaLimitePostulacion" />
+                <ScalarProperty Name="CodCoordinador" ColumnName="CodCoordinador" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spListarEstudiantes" FunctionName="DB_PPPModel.Store.spListarEstudiantes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spListarEstudiantes_Result">
+                <ScalarProperty Name="CodEstudiante" ColumnName="CodEstudiante" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="CodDocenteSupervisor" ColumnName="CodDocenteSupervisor" />
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spListarInformes" FunctionName="DB_PPPModel.Store.spListarInformes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spListarInformes_Result">
+                <ScalarProperty Name="CodInforme" ColumnName="CodInforme" />
+                <ScalarProperty Name="TipoInforme" ColumnName="TipoInforme" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="FechaDeSubida" ColumnName="FechaDeSubida" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spListarInformesAvanceEPP" FunctionName="DB_PPPModel.Store.spListarInformesAvanceEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spListarInformesAvanceEPP_Result">
+                <ScalarProperty Name="CodInformeAvanceEPP" ColumnName="CodInformeAvanceEPP" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="CodInforme" ColumnName="CodInforme" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spListarInformesDeSupervision" FunctionName="DB_PPPModel.Store.spListarInformesDeSupervision">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spListarInformesDeSupervision_Result">
+                <ScalarProperty Name="CodInformeDeSupervisionEPP" ColumnName="CodInformeDeSupervisionEPP" />
+                <ScalarProperty Name="Calificacion" ColumnName="Calificacion" />
+                <ScalarProperty Name="SupervisorACargoEmpresa" ColumnName="SupervisorACargoEmpresa" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="CodInforme" ColumnName="CodInforme" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spListarInformesFinalesEPP" FunctionName="DB_PPPModel.Store.spListarInformesFinalesEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spListarInformesFinalesEPP_Result">
+                <ScalarProperty Name="CodInformeFinalEPP" ColumnName="CodInformeFinalEPP" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="CodInforme" ColumnName="CodInforme" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spListarPlanesDeTrabajo" FunctionName="DB_PPPModel.Store.spListarPlanesDeTrabajo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spListarPlanesDeTrabajo_Result">
+                <ScalarProperty Name="CodPlanDeTrabajoEPP" ColumnName="CodPlanDeTrabajoEPP" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="CodInforme" ColumnName="CodInforme" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spListarUsuarios" FunctionName="DB_PPPModel.Store.spListarUsuarios">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.spListarUsuarios_Result">
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spValidarUsuario" FunctionName="DB_PPPModel.Store.spValidarUsuario" />
+          <FunctionImportMapping FunctionImportName="uspBuscarCartaDePresentacion" FunctionName="DB_PPPModel.Store.uspBuscarCartaDePresentacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.uspBuscarCartaDePresentacion_Result">
+                <ScalarProperty Name="CodCartaPresentacion" ColumnName="CodCartaPresentacion" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="CodInforme" ColumnName="CodInforme" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspBuscarCoordinadorEPP" FunctionName="DB_PPPModel.Store.uspBuscarCoordinadorEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.uspBuscarCoordinadorEPP_Result">
+                <ScalarProperty Name="CodCoordinador" ColumnName="CodCoordinador" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspBuscarDirectorEPIS" FunctionName="DB_PPPModel.Store.uspBuscarDirectorEPIS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.uspBuscarDirectorEPIS_Result">
+                <ScalarProperty Name="CodDirectorEPIS" ColumnName="CodDirectorEPIS" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspBuscarDocenteSupervisorEPP" FunctionName="DB_PPPModel.Store.uspBuscarDocenteSupervisorEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.uspBuscarDocenteSupervisorEPP_Result">
+                <ScalarProperty Name="CodDocenteSupervisor" ColumnName="CodDocenteSupervisor" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspBuscarEmpresa" FunctionName="DB_PPPModel.Store.uspBuscarEmpresa">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.uspBuscarEmpresa_Result">
+                <ScalarProperty Name="CodEmpresa" ColumnName="CodEmpresa" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="RequisitosGenerales" ColumnName="RequisitosGenerales" />
+                <ScalarProperty Name="CronogramaConvocatoria" ColumnName="CronogramaConvocatoria" />
+                <ScalarProperty Name="Beneficios" ColumnName="Beneficios" />
+                <ScalarProperty Name="fechaLimitePostulacion" ColumnName="fechaLimitePostulacion" />
+                <ScalarProperty Name="CodCoordinador" ColumnName="CodCoordinador" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspBuscarEstudiante" FunctionName="DB_PPPModel.Store.uspBuscarEstudiante">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.uspBuscarEstudiante_Result">
+                <ScalarProperty Name="CodEstudiante" ColumnName="CodEstudiante" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="CodDocenteSupervisor" ColumnName="CodDocenteSupervisor" />
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspBuscarInforme" FunctionName="DB_PPPModel.Store.uspBuscarInforme">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.uspBuscarInforme_Result">
+                <ScalarProperty Name="CodInforme" ColumnName="CodInforme" />
+                <ScalarProperty Name="TipoInforme" ColumnName="TipoInforme" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="FechaDeSubida" ColumnName="FechaDeSubida" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspBuscarInformeAvanceEPP" FunctionName="DB_PPPModel.Store.uspBuscarInformeAvanceEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.uspBuscarInformeAvanceEPP_Result">
+                <ScalarProperty Name="CodInformeAvanceEPP" ColumnName="CodInformeAvanceEPP" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="CodInforme" ColumnName="CodInforme" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspBuscarInformeDeSupervisionEPP" FunctionName="DB_PPPModel.Store.uspBuscarInformeDeSupervisionEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.uspBuscarInformeDeSupervisionEPP_Result">
+                <ScalarProperty Name="CodInformeDeSupervisionEPP" ColumnName="CodInformeDeSupervisionEPP" />
+                <ScalarProperty Name="Calificacion" ColumnName="Calificacion" />
+                <ScalarProperty Name="SupervisorACargoEmpresa" ColumnName="SupervisorACargoEmpresa" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="CodInforme" ColumnName="CodInforme" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspBuscarInformeFinalEPP" FunctionName="DB_PPPModel.Store.uspBuscarInformeFinalEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.uspBuscarInformeFinalEPP_Result">
+                <ScalarProperty Name="CodInformeFinalEPP" ColumnName="CodInformeFinalEPP" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="CodInforme" ColumnName="CodInforme" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspBuscarPlanDeTrabajoEPP" FunctionName="DB_PPPModel.Store.uspBuscarPlanDeTrabajoEPP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.uspBuscarPlanDeTrabajoEPP_Result">
+                <ScalarProperty Name="CodPlanDeTrabajoEPP" ColumnName="CodPlanDeTrabajoEPP" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="CodInforme" ColumnName="CodInforme" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspBuscarUsuario" FunctionName="DB_PPPModel.Store.uspBuscarUsuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_PPPModel.uspBuscarUsuario_Result">
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="90be43dbc320438588fc6d5562803a8b" Name="Diagram1" ZoomLevel="48">
+        <EntityTypeShape EntityType="DB_PPPModel.CartaDePresentacion" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_PPPModel.CoordinadorEPP" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_PPPModel.DirectorEPIS" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_PPPModel.DocenteSupervisorEPP" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_PPPModel.Empresa" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_PPPModel.Estudiante" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_PPPModel.Informe" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_PPPModel.InformeAvanceEPP" Width="1.5" PointX="5.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_PPPModel.InformeDeSupervisionEPP" Width="1.5" PointX="5.25" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_PPPModel.InformeFinalEPP" Width="1.5" PointX="5.25" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_PPPModel.PlanDeTrabajoEPP" Width="1.5" PointX="5.25" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_PPPModel.Usuario" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <AssociationConnector Association="DB_PPPModel.FK__CartaDePr__CodIn__2DE6D218" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_PPPModel.FK__Coordinad__CodUs__22751F6C" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_PPPModel.FK__Empresa__CodCoor__25518C17" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_PPPModel.FK__DirectorE__CodUs__18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_PPPModel.FK__DocenteSu__CodUs__1BC821DD" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_PPPModel.FK__Estudiant__CodDo__1EA48E88" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_PPPModel.FK__Estudiant__CodUs__1F98B2C1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_PPPModel.FK__Informe__CodUsua__282DF8C2" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_PPPModel.FK__InformeAv__CodIn__30C33EC3" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_PPPModel.FK__InformeDe__CodIn__2B0A656D" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_PPPModel.FK__InformeFi__CodIn__339FAB6E" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_PPPModel.FK__PlanDeTra__CodIn__367C1819" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
